@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.guest_chair tree view -->
+    <record id="guest_chair_view_tree" model="ir.ui.view">
+        <field name="name">Guest Chair</field>
+        <field name="model">wedding.guest_chair</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="type"/>
+                <field name="stock"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- wedding.guest_chair form view -->
+    <record id="guest_chair_view_form" model="ir.ui.view">
+        <field name="name">Guest Chair Form</field>
+        <field name="model">wedding.guest_chair</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="type"/>
+                    </group>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="stock"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- wedding.guest_chair action window -->
+    <record id="guest_chair_action" model="ir.actions.act_window">
+        <field name="name">Guest Chair</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.guest_chair</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="wedding_guest_chair_menu_act" 
+    name="Guest Chairs" parent="wedding_akomodasi_menu_categ" 
+    action="guest_chair_action" 
+    sequence="10"/>
+
+</odoo>

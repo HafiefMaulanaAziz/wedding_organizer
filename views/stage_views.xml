@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.stage tree view -->
+    <record id="wedding_stage_view_tree" model="ir.ui.view">
+        <field name="name">Stage Type</field>
+        <field name="model">wedding.stage</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="aisle_id"/>
+                <field name="chair_id"/>
+                <field name="flower"/>
+                <field name="accessories"/>
+                <field name="stock"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- wedding.stage form view -->
+    <record id="wedding_stage_view_form" model="ir.ui.view">
+        <field name="name">Wedding Stage</field>
+        <field name="model">wedding.stage</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                          <field name="name"/>
+                          <field name="aisle_id"/>
+                          <field name="chair_id"/>
+                    </group>
+                    <group>
+                        <!-- Add your fields here -->
+                          <field name="flower"/>
+                          <field name="accessories"/>
+                          <field name="stock"/>
+                          <field name="price"/>
+                    </group>
+                    <notebook>
+                        <page name="desc_aisle" string="Aisle Descriptions">
+                            <field name="desc_aisle"/>
+                        </page>
+                        <page name="desc_chair" string="Chair Descriptions">
+                            <field name="desc_chair"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+ 
+    <!-- wedding.stage action window -->
+    <record id="wedding_stage_action" model="ir.actions.act_window">
+        <field name="name">Stage Type Lists</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.stage</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="wedding_akomodasi_stage_menu_act" 
+    name="Stage Aisle" 
+    parent="wedding_akomodasi_menu_categ" 
+    action="wedding_stage_action" 
+    sequence="10"/>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="wedding_menu_root"
+        name="Wedding Org"
+        sequence="10"/>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="wedding_akomodasi_menu_categ" 
+    name="Accomodations" parent="wedding_menu_root" 
+    sequence="10"/>
+
+</odoo>

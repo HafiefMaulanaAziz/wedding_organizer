@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.chair tree view -->
+    <record id="wedding_chair_view_tree" model="ir.ui.view">
+        <field name="name">Chair</field>
+        <field name="model">wedding.chair</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- wedding.chair form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">Wedding Chair</field>
+        <field name="model">wedding.chair</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- wedding.chair action window -->
+    <record id="wedding_chair_action" model="ir.actions.act_window">
+        <field name="name">Chair</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.chair</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="wedding_akomodasi_chair_menu_act" name="Chairs" parent="wedding_akomodasi_menu_categ" action="wedding_chair_action" sequence="10"/>
+
+</odoo>

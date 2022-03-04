@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.aisle tree view -->
+    <record id="wedding_aisle_view_tree" model="ir.ui.view">
+        <field name="name">Aisles</field>
+        <field name="model">wedding.aisle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="description"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+    <!-- wedding.aisle form view -->
+    <record id="wedding_aisle_view_form" model="ir.ui.view">
+        <field name="name">Aisles</field>
+        <field name="model">wedding.aisle</field>
+        <field name="arch" type="xml">
+            <form string="Aisle Lists">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="price"/>                        
+                    </group>
+                    <group>
+                        <field name="description"/>     
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- wedding.aisle action window -->
+    <record id="wedding_aisle_action" model="ir.actions.act_window">
+        <field name="name">Aisles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.aisle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="wedding_akomodasi_aisle_menu_act" name="Aisles" parent="wedding_akomodasi_menu_categ" action="wedding_aisle_action" sequence="10"/>
+
+</odoo>
