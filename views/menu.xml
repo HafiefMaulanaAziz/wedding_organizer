@@ -5,9 +5,15 @@
         id="wedding_menu_root"
         name="Wedding Org"
         sequence="10"/>
+
     <!-- This Menu Item Must have a parent -->
     <menuitem id="wedding_akomodasi_menu_categ" 
     name="Accomodations" parent="wedding_menu_root" 
+    sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="wedding_order_menu_categ" 
+    name="Order" parent="wedding_menu_root" 
     sequence="10"/>
 
 </odoo>

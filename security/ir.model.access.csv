@@ -4,3 +4,5 @@ access_wedding_stage,access.wedding.stage,model_wedding_stage,base.group_user,1,
 access_wedding_aisle,access.wedding.aisle,model_wedding_aisle,base.group_user,1,1,1,1
 access_wedding_chair,access.wedding.chair,model_wedding_chair,,1,1,1,1
 access_wedding_guest_chair,access.wedding.guest_chair,model_wedding_guest_chair,,1,1,1,1
+access_wedding_order,access.wedding.order,model_wedding_order,,1,1,1,1
+access_wedding_order_detail,access.wedding.order_detail,model_wedding_order_detail,,1,1,1,1

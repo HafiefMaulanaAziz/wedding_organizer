@@ -6,3 +6,4 @@ from . import stage
 from . import aisle
 from . import chair
 from . import guest_chair
+from . import order
