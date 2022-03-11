@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_wedding_partner,access.wedding.partner,model_wedding_partner,,1,1,1,1
 access_wedding_stage,access.wedding.stage,model_wedding_stage,base.group_user,1,1,1,1
 access_wedding_aisle,access.wedding.aisle,model_wedding_aisle,base.group_user,1,1,1,1
 access_wedding_chair,access.wedding.chair,model_wedding_chair,,1,1,1,1

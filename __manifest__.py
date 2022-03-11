@@ -34,6 +34,8 @@
         'views/chair_views.xml',
         'views/guest_chair_views.xml',
         'views/order_views.xml',
+        'views/staff_views.xml',
+        'views/customer_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
