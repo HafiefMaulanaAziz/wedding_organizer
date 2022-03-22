@@ -6,3 +6,5 @@ access_wedding_guest_chair,access.wedding.guest_chair,model_wedding_guest_chair,
 access_wedding_order,access.wedding.order,model_wedding_order,,1,1,1,1
 access_wedding_orderstage_detail,access.wedding.orderstage_detail,model_wedding_orderstage_detail,,1,1,1,1
 access_wedding_orderguestchair_detail,access.wedding.orderguestchair_detail,model_wedding_orderguestchair_detail,,1,1,1,1
+access_wedding_returning,access.wedding.returning,model_wedding_returning,,1,1,1,1
+access_wedding_accounting,access.wedding.accounting,model_wedding_accounting,,1,1,1,1

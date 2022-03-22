@@ -36,6 +36,10 @@
         'views/order_views.xml',
         'views/staff_views.xml',
         'views/customer_views.xml',
+        'views/returning_views.xml',
+        'views/accounting_views.xml',
+        'reports/report.xml',
+        'reports/order_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

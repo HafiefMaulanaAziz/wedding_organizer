@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-
+from odoo.exceptions import ValidationError
 
 class Order(models.Model):
     _name = 'wedding.order'
@@ -11,6 +11,10 @@ class Order(models.Model):
     date = fields.Datetime('Date Order', default=fields.Datetime.now())
     total = fields.Integer(compute='_compute_total',
                            string='Total Price', store=True)
+    customer_id = fields.Many2one(comodel_name='res.partner', string='Buyer', domain=[('is_customer', '=', True)])
+    # domain berguna untuk memfilter data sama seperti WHERE dalam SQL
+
+    is_return = fields.Boolean(string='Returned', default=False)
 
     @api.depends('orderstagedetail_ids', 'orderguestchairdetail_ids')
     def _compute_total(self):
@@ -24,6 +28,7 @@ class OrderStageDetail(models.Model):
     _name = 'wedding.orderstage_detail'
     _description = 'New Description'
 
+    returning_id = fields.Many2one(comodel_name='wedding.returning', string='Order')
     order_id = fields.Many2one(comodel_name='wedding.order', string='Order')
     stage_id = fields.Many2one(comodel_name='wedding.stage', string='Stage')
     
@@ -55,13 +60,20 @@ class OrderGuestChairDetail(models.Model):
     _description = 'New Description'
 
     ordergc_id = fields.Many2one(comodel_name='wedding.order', string='Order')
-    guestchair_id = fields.Many2one(comodel_name='wedding.guest_chair', string='Guest Chair')
+    guestchair_id = fields.Many2one(comodel_name='wedding.guest_chair', string='Guest Chair', domain=[('stock', '>', '5')])
     
     name = fields.Char(string='Name')
     price = fields.Integer(compute='_compute_price', string='Price')
     qty = fields.Integer(string='Quantity', default=1)
     price_unit = fields.Integer(
         compute='_compute_price_unit', string='Price/Unit')
+
+    @api.constrains('qty')
+    def _constrains_check_qty(self):
+        for record in self:
+            check = self.env['wedding.guest_chair'].search([('id', '=',record.guestchair_id.id),('stock', '<', record.qty)])
+            if check:
+                raise ValidationError("Stok %s tidak cukup" % record.guestchair_id.name)
 
     @api.depends('guestchair_id')
     def _compute_price_unit(self):

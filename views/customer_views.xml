@@ -47,6 +47,6 @@
     name="Customer" 
     parent="wedding_partner_menu_categ" 
     action="wedding_customer_action" 
-    sequence="10"/>
+    sequence="20"/>
 
 </odoo>

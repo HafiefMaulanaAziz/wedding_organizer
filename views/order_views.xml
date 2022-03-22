@@ -9,7 +9,9 @@
             <tree>
                 <!-- Add your fields here -->
                 <field name="name"/>
+                <field name="customer_id"/>
                 <field name="date"/>
+                <field name="is_return"/>
                 <field name="orderstagedetail_ids"/>
                 <field name="orderguestchairdetail_ids"/>
             </tree>
@@ -26,7 +28,9 @@
                     <group>
                         <!-- Add your fields here -->
                         <field name="name"/>
+                        <field name="customer_id"/>
                         <field name="date"/>
+                        <field name="is_return"/>
                         <field name="total"/>
                     </group>
                     <group>  

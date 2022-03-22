@@ -7,3 +7,5 @@ from . import chair
 from . import guest_chair
 from . import order
 from . import res_partner
+from . import returning
+from . import accounting

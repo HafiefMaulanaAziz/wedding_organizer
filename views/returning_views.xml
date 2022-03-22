@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.returning tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">Returning</field>
+        <field name="model">wedding.returning</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="date"/>   
+                <field name="bill"/>   
+                <field name="customer_name"/>    
+            </tree>
+        </field>
+    </record>
+
+    <!-- wedding.returning form view -->
+    <record id="model_name_view_form" model="ir.ui.view">
+        <field name="name">Returning Form</field>
+        <field name="model">wedding.returning</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="order_id"/>
+                        <field name="date"/>
+                        <field name="bill"/>
+                        <field name="customer_name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- wedding.returning action window -->
+    <record id="wedding_returning_action" model="ir.actions.act_window">
+        <field name="name">Returning</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.returning</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+    id="weddinh_reurning_menu_act" 
+    name="Returning" 
+    parent="wedding_order_menu_categ" 
+    action="wedding_returning_action" 
+    sequence="20"/>
+
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- wedding.accounting tree view -->
+    <record id="model_name_view_tree" model="ir.ui.view">
+        <field name="name">wedding.accounting.view.tree</field>
+        <field name="model">wedding.accounting</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="date"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="saldo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- wedding.accounting action window -->
+    <record id="wedding_accounting_action" model="ir.actions.act_window">
+        <field name="name">Wedding Accounting</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wedding.accounting</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="wedding_accounting_menu_act" 
+    name="Accounting" 
+    parent="wedding_menu_root" 
+    action="wedding_accounting_action" 
+    sequence="40"/>
+
+</odoo>

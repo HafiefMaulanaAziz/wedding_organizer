@@ -21,4 +21,9 @@
     name="Partner" parent="wedding_menu_root" 
     sequence="10"/>
 
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="wedding_accounting_menu_categ" 
+    name="Accounting" parent="wedding_menu_root" 
+    sequence="10"/>
+
 </odoo>
