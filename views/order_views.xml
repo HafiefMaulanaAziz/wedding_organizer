@@ -7,10 +7,14 @@
         <field name="model">wedding.order</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button string="To Accounting" name="invoice" type="object" class="oe_highlight"/>
+                </header>
                 <!-- Add your fields here -->
                 <field name="name"/>
                 <field name="customer_id"/>
                 <field name="date"/>
+                <field name="total"/>
                 <field name="is_return"/>
                 <field name="orderstagedetail_ids"/>
                 <field name="orderguestchairdetail_ids"/>

@@ -16,6 +16,7 @@ class Order(models.Model):
 
     is_return = fields.Boolean(string='Returned', default=False)
 
+
     @api.depends('orderstagedetail_ids', 'orderguestchairdetail_ids')
     def _compute_total(self):
         for record in self:
@@ -23,12 +24,24 @@ class Order(models.Model):
             b = sum(self.env['wedding.orderguestchair_detail'].search([('ordergc_id', '=', record.id)]).mapped('price'))
             record.total = a + b
 
+    def invoice(self):
+        invoices = self.env['account.move'].create({
+            'move_type' : 'out_invoice',
+            'partner_id': self.customer_id,
+            'invoice_date' : self.date,
+            'invoice_line_ids' : [(0, 0, {
+                'product_id' : 0,
+                'quantity' : 1,
+                'price_subtotal' : self.total,
+            })]
+        })
+        self.is_return = True
+        return invoices
 
 class OrderStageDetail(models.Model):
     _name = 'wedding.orderstage_detail'
     _description = 'New Description'
 
-    returning_id = fields.Many2one(comodel_name='wedding.returning', string='Order')
     order_id = fields.Many2one(comodel_name='wedding.order', string='Order')
     stage_id = fields.Many2one(comodel_name='wedding.stage', string='Stage')
     
