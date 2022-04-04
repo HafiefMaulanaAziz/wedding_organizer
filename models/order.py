@@ -28,10 +28,12 @@ class Order(models.Model):
         invoices = self.env['account.move'].create({
             'move_type' : 'out_invoice',
             'partner_id': self.customer_id,
+            'date' : fields.Datetime.now(),
             'invoice_date' : self.date,
             'invoice_line_ids' : [(0, 0, {
                 'product_id' : 0,
                 'quantity' : 1,
+                'price_unit' : self.total,
                 'price_subtotal' : self.total,
             })]
         })

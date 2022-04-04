@@ -32,6 +32,24 @@
                         <field name="bill"/>
                         <field name="customer_name"/>
                     </group>
+                    <group>  
+                        <field name="orderstagedetail_ids">
+                            <tree editable='bottom'>
+                                <field name="stage_id"/>
+                                <field name="price_unit"/>
+                                <field name="qty"/>
+                                <field name="price" sum="total"/>
+                            </tree>
+                        </field> 
+                        <field name="orderguestchairdetail_ids">
+                            <tree editable='bottom'>
+                                <field name="guestchair_id"/>
+                                <field name="price_unit"/>
+                                <field name="qty"/>
+                                <field name="price" sum="total"/>
+                            </tree>
+                        </field> 
+                    </group>
                 </sheet>
             </form>
         </field>

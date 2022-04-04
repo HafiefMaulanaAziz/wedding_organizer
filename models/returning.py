@@ -7,6 +7,8 @@ class Returning(models.Model):
 
     name = fields.Char(string='Name', required=True)
     order_id = fields.Many2one(comodel_name='wedding.order', string='Order ID', required=True)
+    orderstagedetail_ids = fields.One2many(related='order_id.orderstagedetail_ids', string='Order Stage Detail')
+    orderguestchairdetail_ids = fields.One2many(related='order_id.orderguestchairdetail_ids', string='Order Guest Chair Detail')
     date = fields.Date(string='Returning Date', default=fields.Date.today())
     customer_name = fields.Char(compute='_compute_customer_name', string='Customer Name')
     bill = fields.Integer(compute='_compute_bill', string='Bill')
@@ -30,6 +32,11 @@ class Returning(models.Model):
             self.env['wedding.order'].search(
                 [('id', '=', record.order_id.id)]).write({'is_return': True})
             self.env['wedding.accounting'].create({'credit': record.bill, 'name': record.name})
+            for s in record.orderstagedetail_ids:
+                self.env['wedding.stage'].search([('id', '=', s.stage_id.id)]).write({'stock' : s.stage_id.stock + s.qty})
+            for gc in record.orderguestchairdetail_ids:
+                self.env['wedding.guest_chair'].search([('id', '=', gc.guestchair_id.id)]).write({'stock' : gc.guestchair_id.stock + gc.qty})
+
             return record
 
     def unlink(self):
